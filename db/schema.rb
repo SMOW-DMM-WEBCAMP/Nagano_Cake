@@ -25,11 +25,15 @@ ActiveRecord::Schema.define(version: 20210617022400) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer  "product_id", null: false
+    t.integer  "member_id",  null: false
+    t.integer  "quantity",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string   "genre_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,8 +51,13 @@ ActiveRecord::Schema.define(version: 20210617022400) do
   end
 
   create_table "ordered_products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "product_id",                    null: false
+    t.integer  "order_id",                      null: false
+    t.integer  "quantity",                      null: false
+    t.integer  "production_status", default: 0, null: false
+    t.integer  "price",                         null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -62,8 +71,12 @@ ActiveRecord::Schema.define(version: 20210617022400) do
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "member_id",    null: false
+    t.string   "address_name", null: false
+    t.string   "address",      null: false
+    t.string   "postal_code",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
