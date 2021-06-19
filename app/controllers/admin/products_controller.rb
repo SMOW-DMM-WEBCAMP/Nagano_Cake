@@ -6,8 +6,16 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+<<<<<<< HEAD
     @product.save
     redirect_to admin_product_path(@product)
+=======
+    if @product.save
+    redirect_to admin_products_path
+    else
+    redirect_to new_admin_product_path
+    end
+>>>>>>> c345da9a309c3217d9bc9319bb59bd544d959f36
   end
 
   private
