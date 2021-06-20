@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres
+    resources :products,only: [:new,:create,:index,:show]
     patch 'genres/:id/update' => 'genres#update'
   end
 
