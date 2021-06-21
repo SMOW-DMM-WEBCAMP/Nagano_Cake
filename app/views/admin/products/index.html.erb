@@ -35,7 +35,14 @@
           <!--byebug-->
           <td><%= product.genre.genre_name %></td>
           <!--ステータス--> <!--if文簡略化-->
-          <td><%= product.sale_status ? "販売中" : "販売停止中" %></td>
+          <% if product.sale_status %>
+            <td style="color:green;">販売中</td>
+          <%else%>
+            <td style="color:darkglay;">販売停止中</td>
+          <%end%>
+
+
+          <%#<td><%= product.sale_status ? "販売中" : "販売停止中" %></td>
         </tr>
       </tbody>
       <% end %>

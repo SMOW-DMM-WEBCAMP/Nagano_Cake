@@ -2,7 +2,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @genre = Genre.select(:genre_name)
-    @product = Product.page(params[:page]).per(3)
+    @product = Product.page(params[:page]).per(5)
   end
 
   def new
@@ -38,7 +38,7 @@ class Admin::ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:product_image, :product_name, :description, :genre_id, :price, :sale_status)
+     params.require(:product).permit(:product_image, :product_name, :description, :genre_id, :price, :sale_status)
     end
 
 
