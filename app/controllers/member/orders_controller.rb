@@ -6,6 +6,7 @@ class Member::OrdersController < ApplicationController
   end
 
   def confirm
+    @member = Member.find(params[:member_id])
   end
 
   def create
