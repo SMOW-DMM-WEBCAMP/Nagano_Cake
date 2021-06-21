@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="index_title">
+    <h2>配送先登録/一覧</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div>郵便番号(ハイフンなし)</div>
+      <div>住所</div>
+      <div>宛名</div>
+    </div>
+    <div class="col-lg-5 ad_form">
+      <%= form_with model: @shipping_address, url:'shipping_address/create' do |f| %>
+       <div><%= f.text_field :postal_code, placeholder: "000000" %></div>
+       <div><%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0", :size => 5*10 %></div>
+       <div><%= f.text_field :address_name, placeholder: "令和道子" %></div>
+    </div>
+    <div class="col-lg-4">
+      <div colfan="1"></div>
+      <div colfan="1"></div>
+      <div><%= f.submit "新規登録", class: "btn btn-primary" %></div>
+      <% end %>
+    </div>
+  </div>
+    <div class="ad_information">
+      <table>
+        <thead class="">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.address_name %></td>
+            <td>
+              <%= link_to "編集する", member_shipping_address_path %>
+              <%= link_to "削除する", member_shipping_address_path, method: :delete %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
