@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-xs-12 new">
+    <h4 class="title">商品新規登録</h4>
+      <%= form_with model:@product,url:admin_products_path, local:true do |f| %>
+    <div class="col-xs-6">
+
+      <div class="product_display">
+        <h6>商品画像</h6>
+        <%= f.attachment_field :product_image %>
+      </div>
+
+      <div class="product_display">
+        <h6>商品名</h6>
+        <%= f.text_field :product_name, class: "text", placeholder: "商品"  %>
+
+     </div>
+
+      <div class="product_display area">
+        <h6>商品説明</h6>
+        <%= f.text_area :description, class: "text" , placeholder: "ここに説明文を記述します"%>
+
+      </div>
+
+      <div class="product_display">
+        <h6>ジャンル</h6>
+         <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, prompt: "-- 選択してください --", class: "text") %>
+      </div>
+
+      <div class="product_display">
+        <h6>税込価格</h6>
+        <%= f.text_field :price, class: "text", placeholder: "1000"%>円
+      </div>
+
+      <div class="product_display">
+        <h6>販売ステータス</h6>
+        <div class="space">
+          <%= f.radio_button :sale_status, true, checked: true, class: "blue"%>
+          <%= f.label :sale_status, "販売中" %>
+        </div>
+        <div>
+          <%= f.radio_button :sale_status, false,checked: false, class: "blue"%>
+          <%= f.label :sale_status, "販売停止中" %>
+        </div>
+
+
+    <div class="col-xs-7">
+      <%= f.submit '新規登録' , class: "btn btn-success btn-lg pull-right"%>
+    </div>
+   </div>
+    <% end %>
+  </div>
+</div>
