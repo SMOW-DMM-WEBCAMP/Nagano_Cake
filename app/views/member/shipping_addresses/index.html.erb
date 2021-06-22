@@ -10,7 +10,7 @@
       <div>宛名</div>
     </div>
     <div class="col-lg-5 ad_form">
-      <%= form_with model: @shipping_address, url:'shipping_address/create' do |f| %>
+      <%= form_with model: @address, url:'shipping_address/create' do |f| %>
        <div><%= f.text_field :postal_code, placeholder: "000000" %></div>
        <div><%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0", :size => 5*10 %></div>
        <div><%= f.text_field :address_name, placeholder: "令和道子" %></div>
@@ -23,13 +23,13 @@
     </div>
   </div>
     <div class="ad_information">
-      <table>
-        <thead class="">
+      <table class="box1">
+        <thead>
           <tr>
-            <th>郵便番号</th>
-            <th>住所</th>
-            <th>宛名</th>
-            <th></th>
+            <th class="box2">郵便番号</th>
+            <th class="box3">住所</th>
+            <th class="box4">宛名</th>
+            <th class="box5"></th>
           </tr>
         </thead>
         <tbody>
@@ -39,8 +39,8 @@
             <td><%= address.address %></td>
             <td><%= address.address_name %></td>
             <td>
-              <%= link_to "編集する", member_shipping_address_path %>
-              <%= link_to "削除する", member_shipping_address_path, method: :delete %>
+              <%= link_to "編集する", edit_member_shipping_address_path(address.id) %>
+              <%= link_to "削除する", member_shipping_address_path(address), method: :delete, data: { confirm: '本当に削除しますか？' } %>
             </td>
           </tr>
           <% end %>

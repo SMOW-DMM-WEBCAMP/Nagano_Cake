@@ -9,15 +9,11 @@
       <div>宛名</div>
     </div>
     <div class="col-lg-5 ad_form">
-      <%= form_with model: @shipping_address, url:'shipping_address/update' do |f| %>
-       <div><%= f.text_field :postal_code, placeholder: "000000" %></div>
-       <div><%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0", :size => 5*10 %></div>
-       <div><%= f.text_field :address_name, placeholder: "令和道子" %></div>
-    </div>
-    <div class="col-lg-4">
-      <div colfan="1"></div>
-      <div colfan="1"></div>
-      <div><%= f.submit "新規登録", class: "btn btn-primary" %></div>
+      <%= form_with model: @address, url:'update', local:true do |f| %>
+       <%= f.text_field :postal_code %>
+       <%= f.text_field :address, :size => 5*10 %>
+       <%= f.text_field :address_name %>
+       <div><%= f.submit "変更内容を保存",class: "btn btn-primary" %></div> <!--レイアウト時に調整(ユキ)-->
       <% end %>
     </div>
   </div>
