@@ -18,13 +18,14 @@ Rails.application.routes.draw do
       get :confirm, on: :collection
       get :thanks, on: :collection
     end
-    resources:products,only:[:index, :show]
+
+    resources :products,only:[:index, :show]
     resources :shipping_addresses # yuki add [shipping_address]
     post 'shipping_address/create' => 'shipping_addresses#create'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
   end
 
-     get '/' => 'member/products#top'
+    get '/' => 'member/products#top'
     get '/about'  => 'member/products#about'
 
   namespace :admin do
