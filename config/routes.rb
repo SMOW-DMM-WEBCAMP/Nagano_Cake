@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   passwords:     'members/passwords',
   registrations: 'members/registrations'
 }
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
   namespace :member do
     resources :orders, only: [:new, :create, :index, :show] do
@@ -19,11 +19,13 @@ Rails.application.routes.draw do
       get :thanks, on: :collection
     end
     resources:products,only:[:index, :show]
-    end
+    resources :shipping_addresses # yuki add [shipping_address]
+    post 'shipping_address/create' => 'shipping_addresses#create'
+    patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
+  end
 
-      get '/' => 'member/products#top'
-      get '/about'  => 'member/products#about'
-
+     get '/' => 'member/products#top'
+    get '/about'  => 'member/products#about'
 
   namespace :admin do
     resources :genres
@@ -31,5 +33,4 @@ Rails.application.routes.draw do
     patch 'products/:id' => 'products#update'
     patch 'genres/:id/update' => 'genres#update'
   end
-
 end
