@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="index_title">
+    <h2>配送先編集</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div>郵便番号(ハイフンなし)</div>
+      <div>住所</div>
+      <div>宛名</div>
+    </div>
+    <div class="col-lg-5 ad_form">
+      <%= form_with model: @address, url:'update', local:true do |f| %>
+       <%= f.text_field :postal_code %>
+       <%= f.text_field :address, :size => 5*10 %>
+       <%= f.text_field :address_name %>
+       <div><%= f.submit "変更内容を保存",class: "btn btn-primary" %></div> <!--レイアウト時に調整(ユキ)-->
+      <% end %>
+    </div>
+  </div>
+</div>
