@@ -18,7 +18,12 @@ Rails.application.routes.draw do
       get :confirm, on: :collection
       get :thanks, on: :collection
     end
-  end
+    resources:products,only:[:index, :show]
+    end
+
+      get '/' => 'member/products#top'
+      get '/about'  => 'member/products#about'
+
 
   namespace :admin do
     resources :genres

@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="top-image">
+    <%= image_tag 'Cake3.jpeg' ,:size => '700x400' %>
+    <div class="text-box">
+      <h6 class="top-message">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない⽅も商品の閲覧はできますが、<br>購⼊には会員登録が必要になります。</h6>
+    </div>
+  </div>
+
+
+  <div class="top-products">
+    <h3><i>新着商品</i></h3>
+
+    <div class="new-product">
+      <% @products.each do |product|%>
+      <div class="product-text">
+        <div class="product-image">
+          <%= attachment_image_tag product, :product_image, size: "180x100" %>
+        </div>
+        <h6><%= product.product_name %></h6>
+
+        <h6><%= (product.price*1.1).floor %>(<%= product.price %>)円</h6>
+      </div>
+      <%end%>
+
+    </div>
+     <%= link_to "全ての商品を見る>", member_products_path, class: "link" %>
+  </div>
+</div>

@@ -1,3 +1,93 @@
-// Place all the styles related to the member/products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main{
+  width:100%;
+}
+
+.top-image{
+  position: relative;
+  width:700px;
+  height:400px;
+  margin:20px auto ;
+}
+
+.text-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width:400Px;
+  height:200px;
+
+
+}
+
+.top-message{
+  height:100%;
+  display:flex;
+  align-items: center;
+  text-shadow: 1px 2px 3px #808080;
+
+
+}
+.top-products{
+  width:900px;
+  height:300px;
+  margin:30px auto;
+  font-family: 'Bangers', cursive;
+}
+
+.new-product{
+ width:900px;
+ height:200px;
+ margin:20px auto;
+ display:flex;
+}
+
+.product-image{
+
+  width:150px;
+  height:100px;
+
+}
+.product-text{
+  width:150px;
+  height:100px;
+  margin:0 auto;
+}
+
+h6{
+  display: inline-block;
+  width:100%;
+}
+.link{
+  display: block;
+  text-align: right;
+
+}
+.about{
+  margin-bottom:40px;
+  height:100px;
+  text-align: center;
+  font-size:100px;
+  font-family: 'Anton', sans-serif;
+
+}
+
+.about-text-box h4{
+
+  width:100%;
+  height:200px;
+  margin:20px;
+  text-align: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anton', sans-serif;
+}
+
+.about-image {
+
+　height:100px;
+　width:100%;
+  text-align:center;
+}
