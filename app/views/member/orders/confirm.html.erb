@@ -13,17 +13,16 @@
           </tr>
         </thead>
         <tbody>
-          <% @cart_items.each do |cart_item| %>
+
             <tr>
               <td>
-                <%= attachment_image_tag(@orderd_produt.product, :product_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
-                <%= @orderd_produt.product_name %>
+
               </td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
-          <% end %>
+
         </tbody>
       </table>
     </div>
@@ -48,9 +47,22 @@
     </div>
   </div>
 
-  <h5 class='font-weight-bold'>支払方法</h5>
-
-  <h5 class='font-weight-bold'>お届け先</h5>
+  <div class='row'>
+    <div class='col-md-12'>
+      <table class='table table-borderless'>
+        <tbody>
+          <tr>
+            <th>支払方法</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>お届け先</th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <div class='text-center'>
     <%= link_to '注文を確定する', thanks_member_orders_path, class: "btn btn-success" %>

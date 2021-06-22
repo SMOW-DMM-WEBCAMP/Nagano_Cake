@@ -70,11 +70,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_022400) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "member_id", null: false
-<<<<<<< HEAD
     t.integer "shipping", default: 800, null: false
-=======
-    t.integer "shipping", null: false
->>>>>>> origin/sample
     t.integer "purchase_price", null: false
     t.integer "payment_method", default: 0, null: false
     t.string "address_name", null: false
