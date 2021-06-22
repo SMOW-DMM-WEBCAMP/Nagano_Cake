@@ -1,3 +1,39 @@
 // Place all the styles related to the member/shipping_addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.index_title{
+    margin-left: 200px;
+}
+
+.row{
+    margin-top: 50px;
+}
+.ad_information{
+    margin-top: 50px;
+}
+
+
+.box1{
+    width: 700px;
+}
+.box2{
+    width: 120px;
+}
+.box3{
+    width: 235px;
+}
+.box4{
+    width: 115px;
+}
+.box5{
+    width: 228px;
+}
+th, td{
+    border: 2px solid black;
+}
+.ad_form{
+    display: flex;
+}

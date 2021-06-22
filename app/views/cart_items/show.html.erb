@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>ショッピングカート</h2>
+    </div>
+    <div class="col-md-6">
+      ボタン：カートを空にする
+    </div>
+  </div>
+  <div class="row">
+    <% @cart_items.each do |cart_item| %>
+    <table>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= cart_item.products.product_name %></td>
+          <td><%= cart_item.products.price%></td>
+          <td></td>
+          <td></td>
+          <td><%= link_to "削除する", member_cart_item_delete_item_path %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">買い物を続ける</div>
+    <div class="col-md-6">
+      <table>
+        <tr>
+          <td>合計金額</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    情報入力に進む　<!--あとでボタン作成-->
+  </div>
+</div>
