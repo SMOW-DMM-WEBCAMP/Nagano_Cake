@@ -1,15 +1,17 @@
 class Member::OrdersController < ApplicationController
   def new
-    @member = Member.find(params[:member_id])
+    @member = current_member
     @order = Order.new
-    @regisrated_address = Order.pluck(:postal_code, :address, :address_name)
   end
 
   def confirm
-    @member = Member.find(params[:member_id])
+   
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.member_id = current_member.id
+    
   end
 
   def thanks
