@@ -33,6 +33,7 @@
   margin-left:150px;
   justify-content: space-between;
 
+
 }
 
 .product_display_show div{
@@ -66,9 +67,7 @@ h6{
 }
 
 
-.product{
 
-}
 
 select{
   width:300px;
@@ -133,10 +132,17 @@ input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[
 }
 .image{
   width:200px;
+  height:200px;
+
 }
 .actions{
   margin-left:250px;
 }
 .edit{
   display:block;
+}
+
+.image_tag_show{
+  width:400px;
+  height:400px;
 }
