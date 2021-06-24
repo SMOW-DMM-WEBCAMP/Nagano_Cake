@@ -14,22 +14,9 @@ Admin.create!(
   password: '000000',
 )
 
-10.times do |n|
-  Member.create!(
-    name_sei: "太郎#{n}",
-    name_mei: "てすと",
-    name_kana_sei: "タロウ",
-    name_kana_mei: "テスト",
-    postal_code: "000#{n}",
-    address: "テストデータ住所#{n}",
-    tel: "0800000#{n}",
-    email: "user#{n}@test.com",
-    password: "000000"
-  )
-end
-
 # ShippingAddress.create(member_id: '1', address_name: '鈴木花子', postal_code: '3333333', address: '埼玉県さいたま市3-3')
 # ShippingAddress.create(member_id: '1', address_name: '渡邊弘毅', postal_code: '4444444', address: '埼玉県さいたま市4-4')
+
 
 Member.all.each do |member|
   rand(0..3).times do |n|
@@ -87,3 +74,8 @@ CartItem.create(member_id: '2', product_id: '1', quantity: 5)
 #     quantity: n + 1,
 #   )
 # end
+
+
+
+
+

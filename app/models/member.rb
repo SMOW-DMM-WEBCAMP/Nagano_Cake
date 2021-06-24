@@ -20,5 +20,10 @@ class Member < ApplicationRecord
   def active_for_authentication?
     super && (self.taikai_status == false)
   end
+ has_many :cart_items, dependent: :destroy
+ has_many :products
+ has_many :orders
+ has_many :shipping_addresses
+
 
 end
