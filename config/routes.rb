@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   registrations: 'members/registrations'
 }
 
+  scope module: :public do
+    resource :customers,only: [:edit,:update,:show] do
+        collection do
+         get 'quit'
+         patch 'out'
+      end
+    end
+  end
 
   namespace :member do
     resources :orders, only: [:new, :create, :index, :show] do
@@ -33,6 +41,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres
     resources :products,only: [:new,:create,:index,:show,:edit,]
+    resources :members,only:[:index,:show,:edit,:update]
     patch 'products/:id' => 'products#update'
     patch 'genres/:id/update' => 'genres#update'
   end

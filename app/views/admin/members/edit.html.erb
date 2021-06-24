@@ -1,0 +1,9 @@
+   <!-- form_with 記述 -->
+<h2>顧客編集画面</h2>
+    <div class="form-group col-xs-9">
+      <%= f.label :"会員ステータス", class: "col-sm-4 control-label" %>
+       <%= f.radio_button :taikai_status, false %>
+       <%= f.label :taikai_status, "有効"%>
+       <%= f.radio_button :taikai_status, true %>
+       <%= f.label :taikai_status, "退会" %>
+    </div>
