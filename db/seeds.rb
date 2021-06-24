@@ -87,4 +87,3 @@ CartItem.create(member_id: '2', product_id: '1', quantity: 5)
 #     quantity: n + 1,
 #   )
 # end
-
