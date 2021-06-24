@@ -14,7 +14,7 @@
       <% @products.each do |product|%>
       <div class="product-text">
         <div class="product-image">
-          <%= attachment_image_tag product, :product_image, size: "180x100" %>
+          <%= attachment_image_tag product, :product_image, size: "200x300" ,class: "show-image" %>
         </div>
         <h6 class="product-name"><%= product.product_name %></h6>
 

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12 show">
+    <div class="col-xs-5">
+      <div class="image-show">
+        <div>
+          <%= attachment_image_tag @product, :product_image ,class: "image_tag-show"%>
+        </div>
+　　  </div>
+
+　　  <div class="product">
+        <div class="product_Overview">
+          <div class="text" style="font-size: 25px;"> <strong><%= @product.product_name %></strong></div>
+        </div>
+        <div class="product_Overview">
+　　　　  <div><%= @product.description %></div>
+        </div>
+        <div class="product_Overview">
+          <div class="blank" style="font-size: 25px;">¥<strong><%= (@product.price*1.1).floor %></strong><span style="font-size: 13px;">（税込）</span></div>
+        </div>
+        <div class="btn-show">
+          <%= form_with model: @cart_item,url:member_cart_items_path(@product), local: true do |f| %>
+      　　<%= f.hidden_field :product_id, value:@product.id %>
+      　　　<%= f.hidden_field :member_id, value:current_member.id %>
+        　<%= f.select :quantity, (1..50).each{ |n| n }, { include_blank: "個数選択" }, { class: 'form' } %>
+        　<%= f.submit "カートに入れる", class: 'btn btn-success ml-5' %>
+      　</div>
+      </div>
+    　　<% end %>
+      </div>
+    </div>
+  </div>
+</div>

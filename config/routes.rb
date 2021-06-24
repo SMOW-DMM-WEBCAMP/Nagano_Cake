@@ -27,11 +27,13 @@ Rails.application.routes.draw do
       get :thanks, on: :collection
     end
 
-    resources :products,only:[:index, :show]
+
     resources :shipping_addresses # yuki add [shipping_address]
     post 'shipping_address/create' => 'shipping_addresses#create'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
-  end
+    resources :products,only:[:index, :show]
+    resources :cart_items,only:[:create, :show,:destroy]
+    end
 
     get '/' => 'member/products#top'
     get '/about'  => 'member/products#about'
@@ -43,4 +45,4 @@ Rails.application.routes.draw do
     patch 'products/:id' => 'products#update'
     patch 'genres/:id/update' => 'genres#update'
   end
-end
+  end
