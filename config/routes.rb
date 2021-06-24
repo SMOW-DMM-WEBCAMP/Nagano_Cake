@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :member do
     resources :orders, only: [:new, :create, :index, :show] do
-      get :confirm, on: :collection
+      post :confirm, on: :collection
       get :thanks, on: :collection
     end
 
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get '/about'  => 'member/products#about'
 
   namespace :admin do
+    resources :orders, only: [:index, :show, :update]
+    resources :ordered_products, only: [:update]
     resources :genres
     resources :products,only: [:new,:create,:index,:show,:edit,]
     patch 'products/:id' => 'products#update'
