@@ -2,21 +2,21 @@
   margin:50px 300px;
   text-align:center;
   width:100%;
-
 }
+
 .title{
   background-color:lightgray;
   width:150px;
   text-align:center;
   margin-bottom:50px;
 }
+
 .title_show{
   background-color:lightgray;
   width:150px;
   text-align:center;
   margin-bottom:50px;
   margin-left:150px;
-
 }
 
 .product_display{
@@ -32,22 +32,19 @@
   margin-bottom:10px;
   margin-left:150px;
   justify-content: space-between;
-
-
 }
 
 .product_display_show div{
   width:300px;
   font-size:20px;
   height:30px;
-
 }
+
 .size {
   font-size:15px;
 }
 
 h6{
-
   width :120px;
   text-align:left;
   height:30px;
@@ -65,9 +62,6 @@ h6{
 .text{
   width:300px;
 }
-
-
-
 
 select{
   width:300px;
@@ -102,9 +96,11 @@ input[type=radio] {
 input[type=radio] {
   border-radius: 50%;
 }
+
 input[type=radio]:checked:before {
   transform: scale(1);
 }
+
 input[type=radio]:before {
   content: "";
   display: block;
@@ -115,10 +111,12 @@ input[type=radio]:before {
   transform: scale(0);
   transition: all ease-out 250ms;
 }
+
 /* 色は青色のみ */
 input[type=checkbox].blue,input[type=radio].blue {
   border: 2px solid black;
 }
+
 input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[type=radio].blue:checked:before {
   background: black;
 }
@@ -130,14 +128,16 @@ input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[
 .show{
   margin:50px 100px;
 }
+
 .image{
   width:200px;
   height:200px;
-
 }
+
 .actions{
   margin-left:250px;
 }
+
 .edit{
   display:block;
 }
