@@ -15,16 +15,24 @@
           </tr>
         </thead>
         <tbody>
-
+          <% @orders.each do |order| %>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td class="align-middle"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+              <td class="align-middle">
+                〒<%= order.postal_code %></br>
+                <%= order.address %></br>
+                <%= order.address_name %>
+              </td>
+              <td class="align-middle">
+                <% order.ordered_products.each do |ordered_product| %>
+                  <%= ordered_product.product.product_name %></br>
+                <% end %>
+              </td>
+              <td class="align-middle"><%= order.purchase_price + order.shipping %></td>
+              <td class="align-middle"><%= order.order_status %></td>
+              <td class="align-middle"><%= link_to "表示する", member_order_path(order), class:"btn btn-primary" %></td>
             </tr>
-
+          <% end %>
         </tbody>
       </table>
     </div>

@@ -7,27 +7,34 @@
         <tbody>
           <tr>
             <th>購入者</th>
-            <td></td>
+            <td><%= @order.member.name_sei + @order.member.name_mei %></td>
           </tr>
           <tr>
             <th>注文日</th>
-            <td></td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
             <th>配送先</th>
-            <td></td>
+            <td>
+              〒<%= @order.postal_code %> <%= @order.address %></br>
+              <%= @order.address_name %>
+            </td>
           </tr>
           <tr>
             <th>支払方法</th>
-            <td></td>
+            <td><%= @order.payment_method %></td>
           </tr>
           <tr>
             <th>注文ステータス</th>
-            <td></td>
+            <td>
+              <%= form_with model: @order, url: admin_order_path(@order), local:true do |f| %>
+                <%= f.select :order_status, Order.order_statuses.keys, {}, {}  %>
+                <%= f.submit '更新', class: "btn btn-success btn-sm" %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
-
     </div>
   </div>
 
@@ -44,15 +51,20 @@
           </tr>
         </thead>
         <tbody>
-
+          <% @order.ordered_products.each do |ordered_product| %>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><%= ordered_product.product.product_name %></td>
+              <td><%= ordered_product.price %></td>
+              <td><%= ordered_product.quantity %></td>
+              <td><%= ordered_product.price * ordered_product.quantity %></td>
+              <td>
+                <%= form_with model: ordered_product, url: admin_ordered_product_path(ordered_product), local:true do |f| %>
+                  <%= f.select :production_status, OrderedProduct.production_statuses.keys, {}, {}  %>
+                  <%= f.submit '更新', class: "btn btn-success btn-sm" %>
+                <% end %>
+              </td>
             </tr>
-
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -62,15 +74,15 @@
         <tbody>
           <tr>
             <th>商品合計</th>
-            <td></td>
+            <td><%= @order.purchase_price %></td>
           </tr>
           <tr>
             <th>送料</th>
-            <td>800</td>
+            <td><%= @order.shipping %></td>
           </tr>
           <tr>
             <th>請求金額合計</th>
-            <td></td>
+            <td><%= @order.shipping + @order.purchase_price %></td>
           </tr>
         </tbody>
       </table>
