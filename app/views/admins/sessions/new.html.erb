@@ -6,7 +6,7 @@
         <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
         <%= render "session", f: f %>
       <div class="actions col-xs-6">
-        <%= f.submit "　ログイン　", class: "btn btn-info pull-right" %>
+        <%= f.submit "　ログイン　", class: "btn btn-secondary" %>
       </div>
       <% end %>
     </div>
