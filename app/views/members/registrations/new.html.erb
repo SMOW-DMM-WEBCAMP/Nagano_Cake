@@ -58,11 +58,11 @@
       </div>
     </div>
   <div class="row">
-    <div class="col-xs-offset-1 col-xs-11">
-      <div class="field form-group col-xs-9">
-        <div class="col-auto control-label">既に登録済みの方は
-          <p class="new-link"><%= render "members/shared/links" %>からログインしてください。</p>
-        </div>
+      <div class="col-xs-9">
+        <p class="new-link">登録済みの方は
+          <%= link_to "こちら", new_member_session_path, class: "btn-link" %>　からログインしてください。
+        </p>
+      </div>
       </div>
     </div>
   </div>

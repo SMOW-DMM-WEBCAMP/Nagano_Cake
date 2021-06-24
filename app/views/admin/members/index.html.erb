@@ -1,0 +1,7 @@
+<h2>顧客一覧</h2>
+
+<% if customer.is_deleted == true%>
+ <p class="text-secondary">退会済</p>
+<% else %>
+ <p class="text-success">有効</p>
+<% end %>
