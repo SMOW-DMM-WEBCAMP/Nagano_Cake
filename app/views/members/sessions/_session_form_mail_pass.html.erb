@@ -1,0 +1,9 @@
+<div class="field form-group col-xs-10">
+  <%= f.label :"メールアドレス", class: "col-sm-5 control-label" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-7 form-control-static" %>
+</div>
+
+<div class="field form-group col-xs-10">
+  <%= f.label :"パスワード", class: "col-sm-5 control-label" %>
+  <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-7 form-control-static" %>
+</div>
