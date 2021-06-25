@@ -27,13 +27,22 @@ Rails.application.routes.draw do
       get :thanks, on: :collection
     end
 
+    resources :cart_items do
+     collection do
+      delete 'all_destroy'
+     end
+    end
+
 
     resources :shipping_addresses # yuki add [shipping_address]
     post 'shipping_address/create' => 'shipping_addresses#create'
+    post 'shipping_addresses/:id/edit' => 'shipping_address#edit'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
+
     resources :products,only:[:index, :show]
     resources :cart_items,only:[:create, :show,:destroy]
     end
+
 
     get '/' => 'member/products#top'
     get '/about'  => 'member/products#about'
