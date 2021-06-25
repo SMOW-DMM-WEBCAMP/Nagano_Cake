@@ -5,21 +5,36 @@ class Member::CartItemsController < ApplicationController
   end
 
   def create
+
     @cart_item = current_member.cart_items.build(params_cart_item)
+
+     @product = Product.find(params[:cart_item][:product_id])
+    if
     @cart_item.save
-    redirect_to member_cart_items_path
+    redirect_to member_cart_item_path(@cart_item)
+    else
+    render template: "member/products/show"
+    end
+
   end
+
+  def show
+    @cart_items = CartItem.where(member_id:current_member.id)
+  end
+
+
+
 
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(params_cart_item)
-    redirect_to member_cart_items_path
+    redirect_to member_cart_item_path
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to member_cart_items_path
+    redirect_to member_cart_item_path
   end
 
   def all_destroy
