@@ -8,4 +8,5 @@ class Member::MembersController < ApplicationController
     redirect_to root_path
   end
 
+
 end

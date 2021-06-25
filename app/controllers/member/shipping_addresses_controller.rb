@@ -12,7 +12,6 @@ class Member::ShippingAddressesController < ApplicationController
 
   def create
     shipping_address = ShippingAddress.new(params_shipping_address)
-    shipping_address.member_id = current_member.id  #after delete
     shipping_address.save
     redirect_to member_shipping_addresses_path
   end
@@ -20,7 +19,6 @@ class Member::ShippingAddressesController < ApplicationController
   def update
     address = ShippingAddress.find(params[:id])
     address.update(params_shipping_address)
-
     redirect_to member_shipping_addresses_path
   end
 
