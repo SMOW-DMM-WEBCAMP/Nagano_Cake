@@ -23,17 +23,15 @@ Rails.application.routes.draw do
 
   namespace :member do
     resources :orders, only: [:new, :create, :index, :show] do
-      get :confirm, on: :collection
+      post :confirm, on: :collection
       get :thanks, on: :collection
     end
-
-
     resources :shipping_addresses # yuki add [shipping_address]
     post 'shipping_address/create' => 'shipping_addresses#create'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
     resources :products,only:[:index, :show]
     resources :cart_items,only:[:create, :show,:destroy]
-    end
+  end
 
     get '/' => 'member/products#top'
     get '/about'  => 'member/products#about'
@@ -41,8 +39,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres
     resources :products,only: [:new,:create,:index,:show,:edit,]
+    resources :orders,only: [:index,:show,:update]
+    resources :ordered_products,only: [:update]
     resources :members,only:[:index,:show,:edit,:update]
     patch 'products/:id' => 'products#update'
     patch 'genres/:id/update' => 'genres#update'
   end
-  end
+end
