@@ -1,0 +1,28 @@
+ <% if @member.errors.any? %>
+  <h1><%= @member.errors.count %>errors prohibited this user from being saved:</h1><br>
+    <ul>
+      <% @member.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<div class='container p-3'>
+  <span class='bg-light ml-5'>会員情報編集</span>
+
+  <div class='row mt-3'>
+    <div class='col-md-12'>
+      <table class='table table-bordered'>
+        <thead class='table-active'>
+          <tr>
+            <th></th>
+            
+<%= link_to "退会する", quit_members_path, class:"btn btn-danger" %>
+          <% end %>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
