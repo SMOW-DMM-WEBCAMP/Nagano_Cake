@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NaganoCake</title>
+    <script src="https://kit.fontawesome.com/94b4bed700.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="footerFixed">
+      <%= render 'layouts/header' %>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
