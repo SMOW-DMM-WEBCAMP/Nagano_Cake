@@ -21,11 +21,11 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= cart_item.products.product_name %></td>
-          <td><%= cart_item.products.price%></td>
+          <td><%= cart_item.product.product_name %></td>
+          <td><%= cart_item.product.price%></td>
           <td></td>
           <td></td>
-          <td><%= link_to "削除する", member_cart_item_delete_item_path %></td>
+          <td><%= link_to "削除する", member_cart_items_path %></td>
         </tr>
       </tbody>
     </table>
