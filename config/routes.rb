@@ -47,4 +47,3 @@ Rails.application.routes.draw do
     patch 'genres/:id/update' => 'genres#update'
   end
 end
-

@@ -4,9 +4,9 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :cart_items
-  has_many :orders
-  has_many :shipping_addresses
+  has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
 
   validates :name_sei, :name_mei, :name_kana_sei, :name_kana_mei, :postal_code, :address, :tel, presence: true
   validates :name_kana_sei, :name_kana_mei, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "カタカナで入力して下さい。" }
@@ -20,10 +20,5 @@ class Member < ApplicationRecord
   def active_for_authentication?
     super && (self.taikai_status == false)
   end
- has_many :cart_items, dependent: :destroy
- has_many :products
- has_many :orders
- has_many :shipping_addresses
-
 
 end
