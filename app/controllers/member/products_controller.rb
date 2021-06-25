@@ -15,9 +15,9 @@ class Member::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_item = CartItem.new
   end
-  
-  
-  
+
+
+
   def products_params
     params.require(:product).permit(:genre, :name, :introduction, :price, :image, :sales_status)
   end
