@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     post 'shipping_addresses/:id/edit' => 'shipping_address#edit'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
     resources :products,only:[:index, :show]
+    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
   end
 
   namespace :admin do
