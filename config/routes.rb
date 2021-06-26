@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     post 'shipping_addresses/:id/edit' => 'shipping_address#edit'
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
     resources :products,only:[:index, :show]
+    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
+  end
+
+  scope module: :member do
+    resources :members, only: [:show, :edit, :update]
   end
 
   namespace :admin do
@@ -48,4 +53,3 @@ Rails.application.routes.draw do
     post 'genres/:id/edit' => 'genres#edit'
   end
 end
-

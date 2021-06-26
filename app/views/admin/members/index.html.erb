@@ -1,7 +1,30 @@
-<h2>顧客一覧</h2>
+<div class="row" style="width:60%; margin:0 auto;">
+<h4>会員一覧画面</h4>
 
-<% if customer.is_deleted == true%>
- <p class="text-secondary">退会済</p>
-<% else %>
- <p class="text-success">有効</p>
-<% end %>
+<table class="table table-bordered">
+	<tr>
+		<th>顧客ID</th>
+		<th>氏名</th>
+		<th>フリガナ</th>
+		<th>メールアドレス</th>
+		<th>ステータス</th>
+	</tr>
+	<% @members.each do |member| %>
+	<tr>
+		<td><%= member.id %></td>
+		<td>
+			<%= link_to admins_member_path(member) do %>
+				<%= member.name_sei %> <%= member.name_mei %>
+			<% end %>
+		</td>
+		<td><%= member.name_kana_sei %> <%= member.name_kana_mei %></td>
+		<td><%= member.email %></td>
+		<% if member.taikai_status == false %>
+			<td><span class="badge" style="background:green">会員</span></td>
+		<% else %>
+			<td><span class="badge" style="background:red">退会済み</span></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+</div>
