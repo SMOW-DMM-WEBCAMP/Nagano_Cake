@@ -5,22 +5,22 @@
    <ul>
     <li>ジャンル</li>
     <li><%= f.text_field :genre_name %></li>
-    <li class="button"><%= f.submit "新規登録"%></li>
+    <li class="button_green"><%= f.submit "新規登録", class: "button_green" %></li>
    </ul>
    <% end %>
   </div>
   <div class="row">
     <div class="col-md-4">
-      <table>
-        <thead>
+      <table class="table_genre">
+        <thead class="genre_title" bgcolor="#c0c0c0">
           <td>ジャンル</td>
           <td calphan="3"></td>
         </thead>
         <tbody>
           <% @genres.each do |genre| %>
-          <tr>
+          <tr class="genre_title">
            <th><%= genre.genre_name %></th>
-           <th><%= link_to "編集",edit_admin_genre_path(genre) %></th>
+           <th class="button_genre"><%= button_to "編集",edit_admin_genre_path(genre), class: "button_green" %></th>
           </tr>
           <% end %>
         </tbody>

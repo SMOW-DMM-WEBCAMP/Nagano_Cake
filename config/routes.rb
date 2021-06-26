@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :ordered_products,only: [:update]
     patch 'products/:id' => 'products#update'
     patch 'genres/:id/update' => 'genres#update'
+    post 'genres/:id/edit' => 'genres#edit'
   end
 end
 
