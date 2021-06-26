@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
   end
 
+  scope module: :member do
+    resources :members, only: [:show, :edit, :update]
+  end
+
   namespace :admin do
     resources :members,only: [:index,:show,:edit,:update] do
       collection do
