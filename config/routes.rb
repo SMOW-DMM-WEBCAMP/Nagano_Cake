@@ -6,43 +6,40 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
 
-  devise_for :members, controllers: {
-  sessions:      'members/sessions',
-  passwords:     'members/passwords',
-  registrations: 'members/registrations'
-}
+ devise_for :members, skip: :all
+  devise_scope :member do
+    get 'members/sign_in' => 'member/sessions#new', as: 'new_member_session'
+    post 'members/sign_in' => 'member/sessions#create', as: 'member_session'
+    get 'members/sign_out' => 'member/sessions#destroy', as: 'destroy_member_session'
+    get 'members/sign_up' => 'member/registrations#new', as: 'new_member_registration'
+    post 'members' => 'member/registrations#create', as: 'member_registration'
+    get 'members/password/new' => 'member/passwords#new', as: 'new_member_password'
+  end
 
   get '/' => 'member/products#top'
+  get 'order/confirm' => 'homes#top'
   get '/about'  => 'member/products#about'
 
   namespace :member do
+    resources :members, only: [:show, :edit, :update]
+    get 'confirm/:id' => 'members#confirm', as: 'confirm_confirm'
+    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
     resources :orders, only: [:new, :create, :index, :show] do
       post :confirm, on: :collection
       get :thanks, on: :collection
     end
-    resources :cart_items do
+    resources :shipping_addresses, only: [:index, :create, :update, :destroy, :edit]
+    resources :products,only:[:index, :show]
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
      collection do
       delete 'all_destroy'
      end
     end
-    resources :shipping_addresses # yuki add [shipping_address]
-    post 'shipping_address/create' => 'shipping_addresses#create'
-    post 'shipping_addresses/:id/edit' => 'shipping_address#edit'
-    patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
-    resources :products,only:[:index, :show]
-    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
-  end
-
-  scope module: :member do
-    resources :members, only: [:show, :edit, :update]
   end
 
   namespace :admin do
     resources :members,only: [:index,:show,:edit,:update] do
-      collection do
-        get 'quit'
-        patch 'out'
-      end
+      get :search, on: :collection
     end
     resources :genres
     resources :products,only: [:new,:create,:index,:show,:edit,]

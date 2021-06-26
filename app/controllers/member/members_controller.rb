@@ -19,11 +19,15 @@ class Member::MembersController < ApplicationController
     @member = current_member
     if @member.update(member_params)
       flash[:success] = "更新に成功しました"
-      redirect_to member_path(@member)
+      redirect_to member_member_path(@member)
     else
       flash[:warning] = "入力内容を確認してください"
       render :edit
     end
+  end
+
+  def confirm
+    @member = current_member
   end
 
   def withdraw

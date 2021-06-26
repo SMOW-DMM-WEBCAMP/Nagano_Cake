@@ -2,7 +2,7 @@ class Admin::MembersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @members = Member.all
+  	@member = Member.page(params[:page]).per(10)
   end
 
 	def show
@@ -23,18 +23,6 @@ class Admin::MembersController < ApplicationController
 			render "edit"
 		end
 	end
-
-  def toggle
-  	@member = Member.find(params[:id])
-
-  	if @member.taikai_status?
-  		  @member.taikai_status = false
-  	else
-  		  @member.taikai_status = true
-  	end
-        @member.save
-        redirect_to edit_admins_member_path(@member)
-  end
 
 	private
 	def member_params

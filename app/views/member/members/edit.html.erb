@@ -9,7 +9,7 @@
     </ul>
   <% end %>
   <div class="row">
-  <%= form_with model: @member, local:true do |f| %>
+  <%= form_with model: @member, url: member_member_path(@member.id), local:true do |f| %>
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -50,7 +50,7 @@
             <td></td>
             <td><%= f.submit '編集内容を保存', class:"btn btn-success px-5" %></td>
             <td></td>
-            <td><%= link_to "退会する", member_withdraw_member_path, class:"btn btn-danger px-4" %></td>
+            <td><%= link_to "退会する", member_confirm_confirm_path(@member), class:"btn btn-danger px-4" %></td>
           </tr>
         </thead>
       </table>
