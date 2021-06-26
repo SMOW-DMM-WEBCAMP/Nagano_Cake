@@ -11,8 +11,8 @@ class Member::ShippingAddressesController < ApplicationController
 
 
   def create
-    shipping_address = ShippingAddress.new(params_shipping_address)
-    shipping_address.save
+    @shipping_address = ShippingAddress.new(params_shipping_address)
+    @shipping_address.save
     redirect_to member_shipping_addresses_path
   end
 

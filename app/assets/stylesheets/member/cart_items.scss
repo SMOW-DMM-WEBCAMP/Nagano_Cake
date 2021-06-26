@@ -6,28 +6,36 @@
   width: 700px;
   margin: 0 auto;
 }
-.box1{
+.cart_box1{
   width: 300px;
   height: 50px;
+  border: 2px solid black;
 
 }
-.box2{
+.cart_box2{
   width: 100px;
   height: 50px;
+  border: 2px solid black;
 }
-.box3{
+.cart_box3{
   width: 100px;
   height: 50px;
+  border: 2px solid black;
 }
-.box5{
-  width: 50px !important;
+.cart_box5{
+  width: 50px;
   height: 50px;
+  border: 2px solid black;
 }
 
 select{
-  width: 50px !important;
+  width: 50px;
 }
 
+.cart_item_image{
+  width: 70px !important;
+  height: 70px !important;
+}
 
 
 .button_red{
