@@ -28,6 +28,10 @@ class Member::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.address_name = params[:order][:address_name]
     end
+    unless @order.valid?
+      flash[:danger] = "お届け先情報を正しく入力してください。"
+      redirect_to new_member_order_path
+    end
   end
 
   def create #"注文を確定する"ボタンを押したときに呼ばれる
@@ -37,12 +41,16 @@ class Member::OrdersController < ApplicationController
 
     @cart_items = current_member.cart_items
     @cart_items.each do |cart_item| #orderd_productテーブルの1レコードを作成
-      OrderedProduct.create!(
+      if OrderedProduct.create!(
         product_id: cart_item.product.id,
         order_id: @order.id,
         quantity: cart_item.quantity,
         price: (cart_item.product.price * 1.1).floor,
-      )
+        )
+      else
+        flash[:danger] = "注文内容に不備があります。"
+        redirect_to new_member_order_path
+      end
     end
     @cart_items.destroy_all
 

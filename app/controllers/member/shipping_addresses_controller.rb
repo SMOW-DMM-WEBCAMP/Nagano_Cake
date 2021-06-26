@@ -12,14 +12,24 @@ class Member::ShippingAddressesController < ApplicationController
 
   def create
     shipping_address = ShippingAddress.new(params_shipping_address)
-    shipping_address.save
-    redirect_to member_shipping_addresses_path
+    if shipping_address.save
+      flash[:success] = "新規配送先を追加しました。"
+      redirect_to member_shipping_addresses_path
+    else
+      flash[:danger] = "配送先を正しく入力してください。"
+      redirect_to member_shipping_addresses_path
+    end
   end
 
   def update
     address = ShippingAddress.find(params[:id])
-    address.update(params_shipping_address)
-    redirect_to member_shipping_addresses_path
+    if address.update(params_shipping_address)
+      flash[:success] = "配送先の編集が完了しました。"
+      redirect_to member_shipping_addresses_path
+    else
+      flash.now[:danger] = "配送先を正しく入力してください。"
+      render :edit
+    end
   end
 
   def destroy
