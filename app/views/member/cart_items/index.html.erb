@@ -24,14 +24,14 @@
             <%= attachment_image_tag cart_item.product, :product_image, size: "70x70", format: 'png', class: "cart_item_image" %>
             <%= cart_item.product.product_name %>
           </td>
-          <td class="cart_box3"><%= cart_item.product.price%></td>
+          <td class="cart_box3"><%= (cart_item.product.price * 1.1).floor %></td>
           <td class="cart_box5">
             <%= form_with model: cart_item, url: member_cart_item_path(cart_item.id), method: :patch do |f| %>
              <%= f.select :quantity, (1..10).map { |i| [i, i] }.to_h, class: "box10" %>
              <%= f.submit "変更", class: "button_green" %>
             <% end %>
           </td>
-          <% @sum = cart_item.product.price * cart_item.quantity %>
+          <% @sum = (cart_item.product.price * 1.1).floor * cart_item.quantity %>
           <td class="cart_box3"><%= @sum %></td>
           <td class="cart_box3"><%= button_to "削除する", member_cart_item_path(cart_item), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "button_red" %></td>
         </tr>
@@ -54,7 +54,7 @@
   </div>
   <div class="row">
     <div class="col">
-     <%= button_to "情報入力に進む", new_member_order_path(current_member), class: "button_green" %>
+     <%= button_to "情報入力に進む", member_order_orders_new_path(@cart_items), class: "button_green" %>
     </div>
   </div>
 </div>

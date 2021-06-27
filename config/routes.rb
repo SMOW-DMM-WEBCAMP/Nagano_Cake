@@ -19,8 +19,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show] do
       post :confirm, on: :collection
       get :thanks, on: :collection
+      post 'orders/new' => 'orders#new'
     end
     resources :cart_items do
+      post 'cart_items/add_item' => 'cart_items#add_item'
      collection do
       delete 'all_destroy'
      end

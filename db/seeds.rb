@@ -9,10 +9,10 @@
 # Member.create(mane_sei: '田中', name_mei: '太郎', name_kana_sei: 'タナカ', name_kana_mei: 'タロウ', postal_code: '1111111', address: '東京都新宿区1-1', tel: '11111111111', email: 'tanaka@test.com', password: '000000')
 # Member.create(mane_sei: '山田', name_mei: '次郎', name_kana_sei: 'ヤマダ', name_kana_mei: 'ジロウ', postal_code: '2222222', address: '東京都新宿区2-2', tel: '22222222222', email: 'yamada@test.com', password: '000000')
 
-Admin.create!(
-  email: 'admin@admin.com',
-  password: '000000',
-)
+#Admin.create!(
+  #email: 'admin@admin.com',
+  #password: '000000',
+#)
 
 # ShippingAddress.create(member_id: '1', address_name: '鈴木花子', postal_code: '3333333', address: '埼玉県さいたま市3-3')
 # ShippingAddress.create(member_id: '1', address_name: '渡邊弘毅', postal_code: '4444444', address: '埼玉県さいたま市4-4')

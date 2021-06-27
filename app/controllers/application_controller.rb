@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
+  helper_method :current_cart
+
   def current_item
-    CartItem.find(session[:cart_item_id])
-  rescue ActiveRecord::RecordNotFound
-    cart_item = CartItem.create
-    session[:cart_item_id] = cart_item.id
-    cart_item
+    if session[:cart_item_id]
+      @cart_item = CartItem.find(session[:cart_item_id])
+    else
+      @cart_item = CartItem.create
+      session[:cart_item_id] = @cart_item.id
+    end
   end
 
   protected
