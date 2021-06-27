@@ -2,8 +2,6 @@ class Member::MembersController < ApplicationController
 
 #ログインユーザーのみ
   before_action :authenticate_member!
-#退会済みユーザー
-  before_action :member_taikai_status
 #@memberの値のセット
   before_action :set_member
 
@@ -19,11 +17,15 @@ class Member::MembersController < ApplicationController
     @member = current_member
     if @member.update(member_params)
       flash[:success] = "更新に成功しました"
-      redirect_to member_path(@member)
+      redirect_to member_member_path(@member)
     else
       flash[:warning] = "入力内容を確認してください"
       render :edit
     end
+  end
+
+  def confirm
+    @member = current_member
   end
 
   def withdraw
@@ -42,13 +44,6 @@ class Member::MembersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:name_sei, :name_mei, :name_kana_sei, :name_kana_mei, :address, :postal_code, :tel, :email, :taikai_status)
-  end
-
-  #退会済みユーザーへの対応
-  def member_taikai_status
-      if member_signed_in? && current_member.taikai_status?
-         redirect_to root_path
-      end
   end
 
 end

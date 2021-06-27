@@ -13,38 +13,32 @@ Rails.application.routes.draw do
 }
 
   get '/' => 'member/products#top'
+  get 'order/confirm' => 'homes#top'
   get '/about'  => 'member/products#about'
 
   namespace :member do
+    resources :members, only: [:show, :edit, :update]
+    get 'confirm/:id' => 'members#confirm', as: 'confirm_confirm'
+    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
     resources :orders, only: [:new, :create, :index, :show] do
       post :confirm, on: :collection
       get :thanks, on: :collection
       post 'orders/new' => 'orders#new'
     end
-    resources :cart_items do
-      post 'cart_items/add_item' => 'cart_items#add_item'
+    resources :cart_items 
+    resources :shipping_addresses, only: [:index, :create, :update, :destroy, :edit]
+    resources :products,only:[:index, :show]
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
      collection do
       delete 'all_destroy'
      end
     end
-    resources :shipping_addresses # yuki add [shipping_address]
-    post 'shipping_address/create' => 'shipping_addresses#create'
-    post 'shipping_addresses/:id/edit' => 'shipping_address#edit'
-    patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
-    resources :products,only:[:index, :show]
-    patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
-  end
 
-  scope module: :member do
-    resources :members, only: [:show, :edit, :update]
   end
 
   namespace :admin do
     resources :members,only: [:index,:show,:edit,:update] do
-      collection do
-        get 'quit'
-        patch 'out'
-      end
+      get :search, on: :collection
     end
     resources :genres
     resources :products,only: [:new,:create,:index,:show,:edit,]
