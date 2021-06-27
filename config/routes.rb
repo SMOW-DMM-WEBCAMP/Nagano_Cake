@@ -6,15 +6,11 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
 
- devise_for :members, skip: :all
-  devise_scope :member do
-    get 'members/sign_in' => 'member/sessions#new', as: 'new_member_session'
-    post 'members/sign_in' => 'member/sessions#create', as: 'member_session'
-    get 'members/sign_out' => 'member/sessions#destroy', as: 'destroy_member_session'
-    get 'members/sign_up' => 'member/registrations#new', as: 'new_member_registration'
-    post 'members' => 'member/registrations#create', as: 'member_registration'
-    get 'members/password/new' => 'member/passwords#new', as: 'new_member_password'
-  end
+  devise_for :members, controllers: {
+  sessions:      'members/sessions',
+  passwords:     'members/passwords',
+  registrations: 'members/registrations'
+}
 
   get '/' => 'member/products#top'
   get 'order/confirm' => 'homes#top'

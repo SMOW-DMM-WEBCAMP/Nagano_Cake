@@ -48,11 +48,4 @@ class Member::MembersController < ApplicationController
     params.require(:member).permit(:name_sei, :name_mei, :name_kana_sei, :name_kana_mei, :address, :postal_code, :tel, :email, :taikai_status)
   end
 
-  #退会済みユーザーへの対応
-  def member_taikai_status
-      if member_signed_in? && current_member.taikai_status?
-         redirect_to root_path
-      end
-  end
-
 end

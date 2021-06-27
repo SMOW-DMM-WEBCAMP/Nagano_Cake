@@ -1,50 +1,55 @@
-<div class="show-container" style="width:50%; margin: 20px auto;">
-
-	<h4 style="margin-bottom: 20px; border-left: 2px solid #2D6F4C; padding: 10px;">会員詳細画面</h4>
-
-<table class="table table-condensed">
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">顧客ID</th>
-		<td>
-		<%= @member.id %>
-			<% if @member.taikai_status? %>
-					<span class="badge" style="background:#d72238;">退会済</span>
-			<% else %>
-					<span class="badge" style="background:#8bce9a;">有効会員</span>
-			<% end %>
-		</td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">氏名</th>
-		<td><%= @member.name_sei %> <%= @member.name_mei %></td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">フリガナ</th>
-		<td><%= @member.name_kana_sei %> <%= @member.name_kana_mei %></td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">郵便番号</th>
-		<td>〒<%= @member.postal_code %></td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">住所</th>
-		<td>〒<%= @member.address %></td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">電話番号</th>
-		<td><%= @member.tel %></td>
-	</tr>
-	<tr>
-		<th style="background: #dad7d7; border-bottom: 1px solid #fff;">メールアドレス</th>
-		<td style="border-bottom: 1px solid #dad7d7;"><%= @member.email %></td>
-	</tr>
-</table>
-<hr>
-		<%= link_to edit_admins_user_path(@member) do %>
-					<span class="btn btn-info" style="display:inline-block;">編集する</span>
-		<% end %>
-		<%= link_to orders_path(id: @member.id) do %>
-					<span class="btn btn-success" style="display:inline-block;">注文一覧</span>
-		<% end %>
-
-</div>
+<h4 class="title"><span class="mypage"><%= @member.name_sei %><%= @member.name_mei %>さんの会員詳細</span></h4>
+<div class="container customer-show">
+  <div class="row mt-3 ml-5">
+    <div>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @member.id %></td>
+          </tr>
+          <tr>
+            <td>氏名</td>
+            <td><%= @member.name_sei %>　<%= @member.name_mei %></td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td><%= @member.name_kana_sei %>　<%= @member.name_kana_mei %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @member.postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @member.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @member.tel %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @member.email %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <% if @member.taikai_status == true %>
+            <th class="text-success">有効</th>
+            <% else %>
+            <th class="text-secondary">退会</th>
+            <% end %>
+          </tr>
+          <tr>
+            <th></th>
+            <th>
+              <div>
+                <%= link_to "編集する", edit_admin_member_path, class: "btn btn-success mr-5" %>
+                <%= link_to "注文履歴一覧を見る", {controller: 'orders', action: 'index', id: @member.id}, class: "btn btn-primary" %>
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
