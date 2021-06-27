@@ -14,13 +14,11 @@ class Member::CartItemsController < ApplicationController
     end
 
   end
+  
 
   def show
     @cart_items = CartItem.where(member_id:current_member.id)
   end
-
-
-
 
   def update
     @cart_item = CartItem.find(params[:id])

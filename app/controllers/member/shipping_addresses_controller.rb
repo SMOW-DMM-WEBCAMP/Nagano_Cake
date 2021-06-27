@@ -11,16 +11,14 @@ class Member::ShippingAddressesController < ApplicationController
 
 
   def create
-    @shipping_address = ShippingAddress.new(params_shipping_address)
-    @shipping_address.save
-    redirect_to member_shipping_addresses_path
     shipping_address = ShippingAddress.new(params_shipping_address)
+    shipping_address.member_id = current_member.id
     if shipping_address.save
       flash[:success] = "新規配送先を追加しました。"
-      redirect_to member_shipping_addresses_path
+      redirect_to (member_shipping_addresses_path) and return
     else
       flash[:danger] = "配送先を正しく入力してください。"
-      redirect_to member_shipping_addresses_path
+      redirect_to (member_shipping_addresses_path) and return
     end
   end
 
