@@ -31,9 +31,6 @@ Rails.application.routes.draw do
     patch 'shipping_addresses/:id/update' => 'shipping_addresses#update'
     resources :products,only:[:index, :show]
     patch 'withdraw/:id' => 'members#withdraw', as: 'withdraw_member'
-  end
-
-  scope module: :member do
     resources :members, only: [:show, :edit, :update]
   end
 
