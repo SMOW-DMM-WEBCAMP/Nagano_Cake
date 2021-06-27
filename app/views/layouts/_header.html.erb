@@ -14,10 +14,11 @@
           <li><%= link_to ' ジャンル一覧',admin_genres_path, class: 'nav-link text-secondary font-weight-bold'%></li>
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary font-weight-bold' %></li>
         <% elsif member_signed_in? %>
-          <li><%= link_to ' マイページ',member_member_path(current_member), class: 'nav-link text-secondary font-weight-bold' %></li>
-          <li><%= link_to ' 商品一覧',member_products_path, class: 'nav-link text-secondary font-weight-bold' %></li>
-          <li><%= link_to ' カート',member_cart_items_path, class: 'nav-link text-secondary font-weight-bold'%></li>
-          <li><%= link_to ' ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link text-secondary font-weight-bold' %></li>
+          <li class="d-flex align-items-center text-secondary">ようこそ、<%= current_member.name_sei %>さん！</li>
+          <li><%= link_to ' マイページ',member_member_path(current_member),class: 'nav-link text-secondary font-weight-bold' %></li>
+          <li><%= link_to ' 商品一覧',member_products_path,class: 'nav-link text-secondary font-weight-bold' %></li>
+          <li><%= link_to ' カート',member_cart_items_path ,class: 'nav-link text-secondary font-weight-bold'%></li>
+          <li><%= link_to ' ログアウト', destroy_member_session_path, method: :delete,class: 'nav-link text-secondary font-weight-bold' %></li>
         <% else %>
           <li><%= link_to ' About',about_path,class: 'nav-link text-secondary font-weight-bold' %></li>
           <li><%= link_to ' 商品一覧',member_products_path, class: 'nav-link text-secondary font-weight-bold' %></li>

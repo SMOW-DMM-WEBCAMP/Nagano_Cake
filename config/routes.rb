@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       delete 'all_destroy'
      end
     end
+
   end
 
   namespace :admin do

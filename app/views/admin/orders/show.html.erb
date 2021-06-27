@@ -1,5 +1,5 @@
 <div class='container p-3'>
-  <span class='bg-light ml-5'>注文履歴詳細</span>
+  <h4 class="title">注文履歴詳細</h4>
 
   <div class='row mt-3'>
     <div class='col-md-12'>
@@ -28,7 +28,7 @@
             <th>注文ステータス</th>
             <td>
               <%= form_with model: @order, url: admin_order_path(@order), local:true do |f| %>
-                <%= f.select :order_status, Order.order_statuses.keys, {}, {}  %>
+                <%= f.select :order_status, Order.order_statuses.keys, {}, {class:"order-select"}  %>
                 <%= f.submit '更新', class: "btn btn-success btn-sm" %>
               <% end %>
             </td>
@@ -59,7 +59,7 @@
               <td><%= ordered_product.price * ordered_product.quantity %></td>
               <td>
                 <%= form_with model: ordered_product, url: admin_ordered_product_path(ordered_product), local:true do |f| %>
-                  <%= f.select :production_status, OrderedProduct.production_statuses.keys, {}, {}  %>
+                  <%= f.select :production_status, OrderedProduct.production_statuses.keys, {}, {class:"order-select"}  %>
                   <%= f.submit '更新', class: "btn btn-success btn-sm" %>
                 <% end %>
               </td>
