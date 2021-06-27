@@ -24,6 +24,9 @@
   text-align:left;
   margin-bottom:10px;
   margin-left:150px;
+  select{
+   width:300px !important;
+  }
 }
 
 .product_display_show{
@@ -61,11 +64,12 @@ h6{
 
 .text{
   width:300px;
-
 }
 
+
+
 select{
-  width:300px
+  width:300px ;
 }
 
 .btn{
@@ -149,4 +153,8 @@ input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[
 }
 .product-admin{
   margin-left:100px;
+}
+
+.product-list{
+  text-decoration: none !important;
 }
