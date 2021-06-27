@@ -20,9 +20,9 @@
 		<td><%= member.name_kana_sei %> <%= member.name_kana_mei %></td>
 		<td><%= member.email %></td>
 		<% if member.taikai_status == false %>
-			<td><span class="badge" style="background:red">退会済み</span></td>
-		<% else %>
 			<td><span class="badge" style="background:green">会員</span></td>
+		<% else %>
+			<td><span class="badge" style="background:red">退会済み</span></td>
 		<% end %>
 	</tr>
 	<% end %>
