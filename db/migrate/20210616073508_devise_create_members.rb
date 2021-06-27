@@ -7,6 +7,15 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      t.string :name_sei, null: false, default: ""
+      t.string :name_mei, null: false, default: ""
+      t.string :name_kana_sei, null: false, default: ""
+      t.string :name_kana_mei, null: false, default: ""
+      t.string :postal_code, null: false, default: ""
+      t.string :address, null: false, default: ""
+      t.string :tel, null: false, default: ""
+      t.boolean :taikai_status, null: false, default: false
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

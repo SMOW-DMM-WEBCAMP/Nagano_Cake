@@ -1,3 +1,160 @@
-// Place all the styles related to the admin/products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new {
+  margin:50px 300px;
+  text-align:center;
+  width:100%;
+}
+
+.title{
+  background-color:lightgray;
+  width:150px;
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.title_show{
+  background-color:lightgray;
+  width:150px;
+  text-align:center;
+  margin-bottom:50px;
+  margin-left:150px;
+}
+
+.product_display{
+  display:flex;
+  text-align:left;
+  margin-bottom:10px;
+  margin-left:150px;
+  select{
+   width:300px !important;
+  }
+}
+
+.product_display_show{
+  display:flex;
+  text-align:left;
+  margin-bottom:10px;
+  margin-left:150px;
+  justify-content: space-between;
+}
+
+.product_display_show div{
+  width:300px;
+  font-size:20px;
+  height:30px;
+}
+
+.size {
+  font-size:15px;
+}
+
+h6{
+  width :120px;
+  text-align:left;
+  height:30px;
+  padding:5px 0;
+}
+
+.area{
+  height:150px;
+}
+
+.space{
+  margin-right:20px;
+}
+
+.text{
+  width:300px;
+}
+
+
+
+select{
+  width:300px ;
+}
+
+.btn{
+  background-color:green;
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  vertical-align: -0.8rem;
+  transition:all .15s ease-out 0s;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin: .4rem;
+  outline: none;
+  border-radius: 10%;
+}
+
+input[type=radio] {
+  border-radius: 50%;
+}
+
+input[type=radio]:checked:before {
+  transform: scale(1);
+}
+
+input[type=radio]:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 3px;
+  transform: scale(0);
+  transition: all ease-out 250ms;
+}
+
+/* 色は青色のみ */
+input[type=checkbox].blue,input[type=radio].blue {
+  border: 2px solid black;
+}
+
+input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[type=radio].blue:checked:before {
+  background: black;
+}
+
+.col-xs-5{
+  display:flex;
+}
+
+.show{
+  margin:50px 100px;
+}
+
+.image{
+  width:200px;
+  height:200px;
+}
+
+.actions{
+  margin-left:250px;
+}
+
+.edit{
+  display:block;
+}
+
+.image_tag_show{
+  width:400px;
+  height:400px;
+}
+.product-admin{
+  margin-left:100px;
+}
+
+.product-list{
+  text-decoration: none !important;
+}

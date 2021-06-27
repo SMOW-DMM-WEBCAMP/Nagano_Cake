@@ -1,0 +1,59 @@
+<h4 class="c-edit"><span class="my-edit">会員情報編集</span></h4>
+<div class="container main-edit pl-5">
+ <% if @member.errors.any? %>
+  <h1><%= @member.errors.count %>errors prohibited this user from being saved:</h1><br>
+    <ul>
+      <% @member.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="row">
+  <%= form_with model: @member, url: member_member_path(@member.id), local:true do |f| %>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <td>氏名</td>
+            <td><%= f.text_field :name_sei, autofocus: true, autocomplete: "name_sei" %></td>
+            <td><%= f.text_field :name_mei, autocomplete: "name_mei" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td><%= f.text_field :name_kana_sei, autocomplete: "name_kana_sei" %></td>
+            <td><%= f.text_field :name_kana_mei, autocomplete: "name_kana_mei" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :postal_code, autocomplete: "postal_code" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td colspan="3"><%= f.text_field :address, autocomplete: "address", size: "70"%></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= f.text_field :tel, autocomplete: "tel" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.email_field :email, autocomplete: "email" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit '編集内容を保存', class:"btn btn-success px-5" %></td>
+            <td></td>
+            <td><%= link_to "退会する", member_confirm_confirm_path(@member), class:"btn btn-danger px-4" %></td>
+          </tr>
+        </thead>
+      </table>
+    <% end %>
+  </div>
+</div>

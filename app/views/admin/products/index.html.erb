@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row mx-auto justify-content-between">
+      <div>
+       <h4 class="title">商品一覧</h4>
+      </div>
+          <!--新規登録画面に遷移-->
+      <div>
+         <%= link_to new_admin_product_path do %>
+           <button type="button" class="btn btn-success btn-md">＋</button>
+         <% end %>
+      </div>
+  </div>
+      <!--商品一覧-->
+  <div class="row mt-3">
+    <table class="table">
+      <thead class="table-secondary">
+        <tr>
+          <th class="border-dark">商品ID</th>
+          <th class="border-dark">商品</th>
+          <th class="border-dark">税抜価格</th>
+          <th class="border-dark">ジャンル</th>
+          <th class="border-dark">ステータス</th>
+        </tr>
+      </thead>
+      <% @product.each do |product| %>
+      <tbody class="border-dark">
+        <tr>
+          <!--ID-->
+          <td><%= product.id %></td>
+          <!--商品名-->
+          <td><%= link_to product.product_name, admin_product_path(product) %></td>
+          <!--価格-->
+          <td><%= product.price %></td>
+          <!--ジャンル---->
+          <!--byebug-->
+          <td><%= product.genre.genre_name %></td>
+          <!--ステータス--> <!--if文簡略化-->
+          <% if product.sale_status %>
+            <td style="color:green;">販売中</td>
+          <%else%>
+            <td style="color:darkglay;">販売停止中</td>
+          <%end%>
+
+
+          <%#<td><%= product.sale_status ? "販売中" : "販売停止中" %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+   <%= paginate @product %>
+</div>

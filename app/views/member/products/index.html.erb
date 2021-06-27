@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="top-products">
+    <h3><i>商品一覧</i><span style="font-size:20px;">(全<%= Product.where(sale_status: true).count %>件)</span></h3>
+
+    <div class="new-product-index">
+      <% @products.each do |product|%>
+      <div class="product-show">
+        <div class="product-image">
+          <%= link_to  member_product_path(product) ,class:"product-list" do %>
+          <%= attachment_image_tag product, :product_image, size: "180x100" ,class: "show-image" %>
+        　<% end %>
+        </div>
+        <h6 class="product-name"><%= product.product_name %></h6>
+
+        <h6 class="product-name"><%= (product.price*1.1).floor %>(<%= product.price %>)円</h6>
+      </div>
+      <%end%>
+
+    </div>
+     <%= paginate @products %>
+  </div>
+</div>

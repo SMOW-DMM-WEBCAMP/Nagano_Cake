@@ -1,0 +1,71 @@
+<h4 class="mypage-title"><span class="mypage">マイページ</span></h4>
+<div class="container pl-4">
+<div class="row">
+  <div class="col-md-3">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th class="mypage-btn width:40% align-middle">登録情報</th>
+          <th><%= link_to "編集する", edit_member_member_path(@member), class:"btn btn-success width:60% px-4" %></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div>
+    <table class="table">
+      <thead class="thead-light">
+        <tr class="col-md-7">
+          <th class="border border-dark">氏名</th>
+          <td class="border border-dark">
+            <%= @member.name_sei %>
+            <%= @member.name_mei %>
+          </td>
+        </tr>
+        <tr>
+          <th class="border border-dark">カナ</th>
+          <td class="border border-dark">
+            <%= @member.name_kana_sei %>
+            <%= @member.name_kana_mei %>
+          </td>
+        </tr>
+        <tr>
+          <th class="border border-dark">郵便番号</th>
+          <td class="border border-dark"><%= @member.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="border border-dark">住所</tdh>
+          <td class="border border-dark"><%= @member.address %></td>
+        </tr>
+        <tr>
+          <th class="border border-dark">電話番号</th>
+          <td class="border border-dark"><%= @member.tel %></td>
+        </tr>
+        <tr>
+          <th class="border border-dark">メールアドレス</th>
+          <td class="border border-dark"><%= @member.email %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th class="mypage-btn width:40% align-middle">配送先</th>
+          <th><%= link_to "一覧を見る", member_shipping_addresses_path, class:"btn btn-primary px-4 width:60%" %></th>
+        </tr>
+        <tr>
+          <th class="mypage-btn width:40% align-middle">注文履歴</th>
+          <th><%= link_to "一覧を見る", member_orders_path, class:"btn btn-primary px-4 width:60%" %></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+</div>

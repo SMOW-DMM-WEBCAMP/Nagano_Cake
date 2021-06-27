@@ -1,0 +1,34 @@
+<div class="container">
+  <h5>ジャンル一覧・追加</h5>
+  <div class="row">
+   <%= form_with model:@genre, url:'genres', local:true do |f| %>
+   <ul>
+    <li>ジャンル</li>
+    <li><%= f.text_field :genre_name %></li>
+    <li class="button_green"><%= f.submit "新規登録", class: "button_green" %></li>
+   </ul>
+   <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table_genre">
+        <thead class="genre_title" bgcolor="#c0c0c0">
+          <td>ジャンル</td>
+          <td calphan="3"></td>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr class="genre_title">
+           <th><%= genre.genre_name %></th>
+           <th class="button_genre"><%= button_to "編集",edit_admin_genre_path(genre), class: "button_green" %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+

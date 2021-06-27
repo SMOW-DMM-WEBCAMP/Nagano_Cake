@@ -1,0 +1,22 @@
+<div class="container withdraw-confirm">
+  <div class="withdraw-confirm-message">
+    <div class="row">
+      <h4 class="col-md-6 offset-3 text-center font-weight-bold">本当に退会しますか？</h4>
+    </div>
+
+    <div class="row mt-3">
+      <p class="confirm-message col-md-6 offset-3 text-center">
+        退会すると、会員登録情報や</br>
+        これまでの購⼊履歴が閲覧できなくなります。</br>
+        退会する場合は、「退会する」をクリックしてください。</br>
+      </p>
+    </div>
+
+    <div class="row mt-2 flex-row col-md-4 offset-4">
+        <p class="mx-auto d-block"><%= link_to '退会しない', member_member_path(@member), class: "btn btn-primary px-4" %></p>
+        <p class="mx-auto d-block"><%= form_with model: @member, url: member_withdraw_member_path(@member), local: true do |f| %>
+        <%= f.submit "退会する", class: "btn btn-danger px-4" %>
+        <% end %></p>
+    </div>
+  </div>
+</div>

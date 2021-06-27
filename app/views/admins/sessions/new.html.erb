@@ -1,0 +1,14 @@
+<% provide(:title, "管理者ログイン") %>
+<div class="container p-3">
+  <h2 class="bg-light ml-5">管理者ログイン</h2>
+  <div class="row mt-3">
+    <div class="col-xs-offset-1 col-xs-8">
+        <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+        <%= render "session", f: f %>
+      <div class="actions col-xs-6">
+        <%= f.submit "　ログイン　", class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
