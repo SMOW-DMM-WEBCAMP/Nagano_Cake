@@ -33,7 +33,7 @@ class Member::MembersController < ApplicationController
     @member.update(taikai_status: true)
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    redirect_to root_path
+    redirect_to new_member_registration_path
   end
 
   private
