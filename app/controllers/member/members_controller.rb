@@ -2,8 +2,6 @@ class Member::MembersController < ApplicationController
 
 #ログインユーザーのみ
   before_action :authenticate_member!
-#退会済みユーザー
-  before_action :member_taikai_status
 #@memberの値のセット
   before_action :set_member
 

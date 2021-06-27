@@ -11,7 +11,7 @@ class Members::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
       @member = Member.find_by(email: params[:member][:email])
-      if @member && @member.taikai_status == false
+      if @member && @member.taikai_status == true
         redirect_to request.referer, notice: "退会済みのアカウントです"
       else
         super
