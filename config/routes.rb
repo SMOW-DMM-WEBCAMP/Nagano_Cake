@@ -25,8 +25,9 @@ Rails.application.routes.draw do
       get :thanks, on: :collection
       post 'orders/new' => 'orders#new'
     end
-    resources :cart_items 
+    resources :cart_items
     resources :shipping_addresses, only: [:index, :create, :update, :destroy, :edit]
+      post 'shipping_addresses/:id/edit' => 'shipping_addresses#edit'
     resources :products,only:[:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
      collection do
